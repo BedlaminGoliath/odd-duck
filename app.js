@@ -93,18 +93,18 @@ randomizer();
 
 // grab the elements that i need to assign to.
 
-let image = document.getElementById('productImage');
-image.addEventListener('click', buttonrandomizer);
+// let image = document.getElementById('productImage');
+// image.addEventListener('click', buttonrandomizer);
 
-let imageTwo = document.getElementById('productImage2');
-imageTwo.addEventListener('click', buttonrandomizer);
+// let imageTwo = document.getElementById('productImage2');
+// imageTwo.addEventListener('click', buttonrandomizer);
 
-let imageThree = document.getElementById('productImage3');
-imageThree.addEventListener('click', buttonrandomizer);
+// let imageThree = document.getElementById('productImage3');
+// imageThree.addEventListener('click', buttonrandomizer);
 
-function buttonrandomizer(){
+// function buttonrandomizer(){
 
-//   let genNewImage = randomizer();
-//   let 
+// //   let genNewImage = randomizer();
+// //   let
 
-// }
+// // };
