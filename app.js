@@ -1,23 +1,22 @@
 'use strict';
 
 
-let maxRound = 25;
+// let maxRound = 25;
 let currentRound = 0;
 let timesViewed = 0;
 
 // create constructor function that takes in name, filepath and times viewed as arguements
-function Product (name, source, click = 0){
+function Product (name, src, clicked = 0){
   this.name = name;
-  this.source = source;
-  this.timesViewed = 0;
-  this.click = click;
+  this.src = src;
+  this.clicked = clicked;
 
 }
 // Array of all products that take in name, file path, and times viewed as parameters
 let allProducts = [
 
   new Product ('bag','./assets/bag.jpg', timesViewed),
-  new Product ('banana', './assets/banana.jpg',timesViewed ),
+  new Product ('banana', './assets/banana.jpg', timesViewed ),
   new Product ('bathroom', './assets/bathroom.jpg', timesViewed),
   new Product ('boots', './assets/boots.jpg', timesViewed),
   new Product ('breakfast','./assets/breakfast.jpg', timesViewed),
@@ -80,13 +79,14 @@ function randomizer () {
 
     // eslint-disable-next-line no-empty
     if (randomArray.includes(randomIndex)){
+
     }
     else {
       randomArray.push(randomIndex);
     }
 
   }
-  console.log(randomArray);
+  //   console.log(randomArray);
   return randomArray;
 }
 randomizer();
@@ -94,6 +94,7 @@ randomizer();
 // return randomArray
 
 // grab the elements that i need to assign to.
+// listeners
 
 let image = document.getElementById('productImage1');
 image.addEventListener('click', buttonrandomizer);
@@ -115,7 +116,7 @@ function buttonrandomizer(){
   img.src = allProducts[product[0]].source;
   img.alt = product.name;
   img.title = product.name;
-  //   increment shown products
+  // increment shown products
   product.click++;
   currentRound++;
   let img2 = document.getElementById('productImage2');
@@ -132,10 +133,45 @@ function buttonrandomizer(){
   //   increment shown products
   product.click++;
   currentRound++;
-  if (currentRound === maxRound){
+  if (currentRound === 5){
     product.removeEventListener('click', buttonrandomizer);
   }
 }
-
-
 buttonrandomizer();
+
+// function renderImage(){
+//   let threeNewImages = randomizer();
+//   let product1, product2, product3;
+//   product1 = allProducts[threeNewImages[0]];
+//   product2 = allProducts[threeNewImages[1]];
+//   product3 = allProducts[threeNewImages[2]];
+
+//   let img = document.getElementById('productImage1');
+//   img.src = product1.src;
+//   img.alt = product1.alt;
+//   img.title = product1.title;
+//   product1.timesViewed++;
+
+//   let img2 = document.getElementById('productImage2');
+//   img2.src = product2.src;
+//   img2.alt = product2.alt;
+//   img2.title = product2.title;
+//   product2.timesViewed++;
+//   let img3 = document.getElementById('productImage3');
+//   img3.src = product3.src;
+//   img3.alt = product3.alt;
+//   img3.title = product3.title;
+//   product3.timesViewed++;
+
+// }
+// // incorp into handleTheEvent after for loop
+// renderImage();
+
+
+
+// function handleTheEvent(e){
+//   e.preventDefault();
+// let clickedProduct = e.target.alt;
+// // for loop it. through array .name
+// // compare clicked product to allProducts
+// }
