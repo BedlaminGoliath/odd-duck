@@ -139,39 +139,39 @@ function buttonrandomizer(){
 }
 buttonrandomizer();
 
-// function renderImage(){
-//   let threeNewImages = randomizer();
-//   let product1, product2, product3;
-//   product1 = allProducts[threeNewImages[0]];
-//   product2 = allProducts[threeNewImages[1]];
-//   product3 = allProducts[threeNewImages[2]];
+function renderImage(){
+  let threeNewImages = randomizer();
+  let product1, product2, product3;
+  product1 = allProducts[threeNewImages[0]];
+  product2 = allProducts[threeNewImages[1]];
+  product3 = allProducts[threeNewImages[2]];
 
-//   let img = document.getElementById('productImage1');
-//   img.src = product1.src;
-//   img.alt = product1.alt;
-//   img.title = product1.title;
-//   product1.timesViewed++;
+  let img = document.getElementById('productImage1');
+  img.src = product1.src;
+  img.alt = product1.alt;
+  img.title = product1.title;
+  product1.timesViewed++;
 
-//   let img2 = document.getElementById('productImage2');
-//   img2.src = product2.src;
-//   img2.alt = product2.alt;
-//   img2.title = product2.title;
-//   product2.timesViewed++;
-//   let img3 = document.getElementById('productImage3');
-//   img3.src = product3.src;
-//   img3.alt = product3.alt;
-//   img3.title = product3.title;
-//   product3.timesViewed++;
+  let img2 = document.getElementById('productImage2');
+  img2.src = product2.src;
+  img2.alt = product2.alt;
+  img2.title = product2.title;
+  product2.timesViewed++;
+  let img3 = document.getElementById('productImage3');
+  img3.src = product3.src;
+  img3.alt = product3.alt;
+  img3.title = product3.title;
+  product3.timesViewed++;
 
-// }
-// // incorp into handleTheEvent after for loop
-// renderImage();
+}
+// incorp into handleTheEvent after for loop
+renderImage();
 
 
 
-// function handleTheEvent(e){
-//   e.preventDefault();
-// let clickedProduct = e.target.alt;
-// // for loop it. through array .name
-// // compare clicked product to allProducts
-// }
+function handleTheEvent(e){
+  e.preventDefault();
+let clickedProduct = e.target.alt;
+// for loop it. through array .name
+// compare clicked product to allProducts
+}
