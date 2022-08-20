@@ -3,46 +3,51 @@
 
 // let maxRound = 25;
 let currentRound = 0;
-let timesViewed = 0;
+let productList = [];
+let previousArray = [];
+let resultButton = document.getElementById('button');
+let productsImg = document.getElementById('productsImg');
 
 // create constructor function that takes in name, filepath and times viewed as arguements
-function Product (name, src, clicked = 0){
-  this.name = name;
+function Product (src,alt,name, clicked = 0, timesViewed = 0){
   this.src = src;
+  this.alt = alt;
+  this.name = name;
   this.clicked = clicked;
-
+  this.timesViewed = timesViewed;
+  productList.push(this);
 }
 // Array of all products that take in name, file path, and times viewed as parameters
 let allProducts = [
 
-  new Product ('bag','./assets/bag.jpg', timesViewed),
-  new Product ('banana', './assets/banana.jpg', timesViewed ),
-  new Product ('bathroom', './assets/bathroom.jpg', timesViewed),
-  new Product ('boots', './assets/boots.jpg', timesViewed),
-  new Product ('breakfast','./assets/breakfast.jpg', timesViewed),
-  new Product ('bubblegum','./assets/bubblegum.jpg', timesViewed),
-  new Product ('chair', './assets/chair.jpg', timesViewed),
-  new Product ('cthulhu', './assets/cthulhu.jpg', timesViewed),
-  new Product ('dog-duck', './assets/dog-duck.jpg', timesViewed),
-  new Product ('dragon', './assets/dragon.jpg', timesViewed),
-  new Product ('pen', './assets/pen.jpg', timesViewed),
-  new Product ('pet-sweep', './assets/pet-sweep.jpg', timesViewed),
-  new Product ('scissors', './assets/scissors.jpg', timesViewed),
-  new Product ('shark', './assets/shark.jpg', timesViewed),
-  new Product ('sweep','./assets/sweep.png', timesViewed),
-  new Product ('tauntaun', './assets/tauntaun.jpg', timesViewed),
-  new Product ('unicorn', './assets/unicorn.jpg', timesViewed),
-  new Product ('water-can', './assets/water-can.jpg', timesViewed),
-  new Product ('wine-glass', './assets/wine-glass.jpg', timesViewed),
+  new Product ('./assets/bag.jpg', 'weird bag', 'bag'),
+  new Product ('./assets/banana.jpg', 'weird banana', 'banana'),
+  new Product ('./assets/bathroom.jpg', 'weird bathroom', 'bathroom'),
+  new Product ('./assets/boots.jpg', 'weird boots', 'boots'),
+  new Product ('./assets/breakfast.jpg', 'weird breakfast', 'breakfast'),
+  new Product ('./assets/bubblegum.jpg', 'weird bubblegum', 'bubblegum'),
+  new Product ('./assets/chair.jpg', 'weird chair', 'chair'),
+  new Product ('./assets/cthulhu.jpg', 'weird cthulhu', 'cthulhu'),
+  new Product ('./assets/dog-duck.jpg', 'weird dog duck', 'dog-duck'),
+  new Product ('./assets/dragon.jpg', 'weird dragon', 'dragon'),
+  new Product ('./assets/pen.jpg', 'weird pen', 'pen'),
+  new Product ('./assets/pet-sweep.jpg', 'weird pet sweep', 'pet-sweep'),
+  new Product ('./assets/scissors.jpg', 'weird scissors', 'scissors'),
+  new Product ('./assets/shark.jpg', 'weird shark', 'shark'),
+  new Product ('./assets/sweep.png', 'weird sweep', 'sweep'),
+  new Product ('./assets/tauntaun.jpg', 'weird tauntaun', 'tauntaun'),
+  new Product ('./assets/unicorn.jpg', 'weird unicorn', 'unicorn'),
+  new Product ('./assets/water-can.jpg', 'weird water can', 'water-can'),
+  new Product ('./assets/wine-glass.jpg', 'weird wine glass', 'wine-glass'),
 ];
 
-console.log(allProducts);
+
 
 // Random Image that will generate a random image (number)
 
 function randomImage(){
 
-  return Math.floor(Math.random () * allProducts.length);
+  return Math.floor(Math.random() * allProducts.length);
 }
 
 
@@ -72,13 +77,13 @@ function randomImage(){
 function randomizer () {
   let randomArray = [];
 
-  while (randomArray.length < 3) {
+  while (randomArray.length < 6) {
 
     let randomIndex = randomImage();
 
 
     // eslint-disable-next-line no-empty
-    if (randomArray.includes(randomIndex)){
+    if (randomArray.includes(randomIndex) || previousArray.includes(randomIndex)){
 
     }
     else {
@@ -87,57 +92,60 @@ function randomizer () {
 
   }
   //   console.log(randomArray);
+  previousArray = randomArray;
   return randomArray;
 }
+
 randomizer();
 
-// return randomArray
 
 // grab the elements that i need to assign to.
 // listeners
 
 let image = document.getElementById('productImage1');
-image.addEventListener('click', buttonrandomizer);
+image.addEventListener('click', handleTheEvent);
 
 let imageTwo = document.getElementById('productImage2');
-imageTwo.addEventListener('click', buttonrandomizer);
+imageTwo.addEventListener('click', handleTheEvent);
 
 let imageThree = document.getElementById('productImage3');
-imageThree.addEventListener('click', buttonrandomizer);
-
-function buttonrandomizer(){
-
-  let product = randomizer();
+imageThree.addEventListener('click', handleTheEvent);
 
 
-  console.log(product);
+// event handler
+// function buttonrandomizer(){
 
-  let img = document.getElementById('productImage1');
-  img.src = allProducts[product[0]].source;
-  img.alt = product.name;
-  img.title = product.name;
-  // increment shown products
-  product.click++;
-  currentRound++;
-  let img2 = document.getElementById('productImage2');
-  img2.src = allProducts[product[1]].source;
-  img2.alt = product.name;
-  img2.title = product.name;
-  //   increment shown products
-  product.click++;
-  currentRound++;
-  let img3 = document.getElementById('productImage3');
-  img3.src = allProducts[product[2]].source;
-  img3.alt = product.name;
-  img3.title = product.name;
-  //   increment shown products
-  product.click++;
-  currentRound++;
-  if (currentRound === 5){
-    product.removeEventListener('click', buttonrandomizer);
-  }
-}
-buttonrandomizer();
+//   let product = randomizer();
+
+
+//   console.log(product);
+
+//   let img = document.getElementById('productImage1');
+//   img.src = allProducts[product[0]].src;
+//   img.alt = product.name;
+//   img.title = product.name;
+//   // increment shown products
+//   product.click++;
+//   currentRound++;
+//   let img2 = document.getElementById('productImage2');
+//   img2.src = allProducts[product[1]].src;
+//   img2.alt = product.name;
+//   img2.title = product.name;
+//   //   increment shown products
+//   product.click++;
+//   currentRound++;
+//   let img3 = document.getElementById('productImage3');
+//   img3.src = allProducts[product[2]].src;
+//   img3.alt = product.name;
+//   img3.title = product.name;
+//   //   increment shown products
+//   product.click++;
+//   currentRound++;
+//   if (currentRound === 5){
+//     product.removeEventListener('click', buttonrandomizer);
+//   }
+// }
+// buttonrandomizer();
 
 function renderImage(){
   let threeNewImages = randomizer();
@@ -146,32 +154,61 @@ function renderImage(){
   product2 = allProducts[threeNewImages[1]];
   product3 = allProducts[threeNewImages[2]];
 
-  let img = document.getElementById('productImage1');
-  img.src = product1.src;
-  img.alt = product1.alt;
-  img.title = product1.title;
+  let image = document.getElementById('productImage1');
+  image.name = product1.name;
+  image.src = product1.src;
+  image.alt = product1.alt;
   product1.timesViewed++;
 
-  let img2 = document.getElementById('productImage2');
-  img2.src = product2.src;
-  img2.alt = product2.alt;
-  img2.title = product2.title;
+  let image2 = document.getElementById('productImage2');
+  image2.name = product2.name;
+  image2.src = product2.src;
+  image2.alt = product2.alt;
   product2.timesViewed++;
-  let img3 = document.getElementById('productImage3');
-  img3.src = product3.src;
-  img3.alt = product3.alt;
-  img3.title = product3.title;
+
+  let image3 = document.getElementById('productImage3');
+  image3.name = product3.name;
+  image3.src = product3.src;
+  image3.alt = product3.alt;
   product3.timesViewed++;
 
 }
-// incorp into handleTheEvent after for loop
+// // incorp into handleTheEvent after for loop
 renderImage();
 
 
 
 function handleTheEvent(e){
-  e.preventDefault();
-let clickedProduct = e.target.alt;
-// for loop it. through array .name
-// compare clicked product to allProducts
+  // e.preventDefault();
+
+  let clickedProduct = e.target.name;
+
+  for (let i = 0; i < productList.length; i++){
+    if (clickedProduct === productList[i].name){
+      productList[i].clicked++;
+      break;
+    }
+  }
+  currentRound++;
+  if(currentRound === 10){
+    resultButton.hidden = false;
+    productsImg.hidden = true;
+    image.removeEventListener('click', handleTheEvent);
+    imageTwo.removeEventListener('click', handleTheEvent);
+    imageThree.removeEventListener('click', handleTheEvent);
+  } else {
+    renderImage();
+  }
 }
+console.log(allProducts);
+
+function renderResults(){
+  let ul = document.getElementById('resultList');
+  for (let i = 0; i <productList.length; i++){
+    let li = document.createElement('li');
+    li.textContent = `${allProducts[i].name} had ${allProducts[i].timesViewed} view and was clicked ${allProducts[i].clicked} times.`;
+    ul.appendChild(li);
+  }
+  return ul;
+}
+resultButton.addEventListener('click', renderResults);
