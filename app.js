@@ -1,7 +1,6 @@
 'use strict';
 
 
-// let maxRound = 25;
 let currentRound = 0;
 let productList = [];
 let previousArray = [];
@@ -112,41 +111,6 @@ let imageThree = document.getElementById('productImage3');
 imageThree.addEventListener('click', handleTheEvent);
 
 
-// event handler
-// function buttonrandomizer(){
-
-//   let product = randomizer();
-
-
-//   console.log(product);
-
-//   let img = document.getElementById('productImage1');
-//   img.src = allProducts[product[0]].src;
-//   img.alt = product.name;
-//   img.title = product.name;
-//   // increment shown products
-//   product.click++;
-//   currentRound++;
-//   let img2 = document.getElementById('productImage2');
-//   img2.src = allProducts[product[1]].src;
-//   img2.alt = product.name;
-//   img2.title = product.name;
-//   //   increment shown products
-//   product.click++;
-//   currentRound++;
-//   let img3 = document.getElementById('productImage3');
-//   img3.src = allProducts[product[2]].src;
-//   img3.alt = product.name;
-//   img3.title = product.name;
-//   //   increment shown products
-//   product.click++;
-//   currentRound++;
-//   if (currentRound === 5){
-//     product.removeEventListener('click', buttonrandomizer);
-//   }
-// }
-// buttonrandomizer();
-
 function renderImage(){
   let threeNewImages = randomizer();
   let product1, product2, product3;
@@ -179,7 +143,7 @@ renderImage();
 
 
 function handleTheEvent(e){
-  // e.preventDefault();
+  e.preventDefault();
 
   let clickedProduct = e.target.name;
 
