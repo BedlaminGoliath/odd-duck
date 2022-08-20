@@ -190,7 +190,7 @@ function handleTheEvent(e){
     }
   }
   currentRound++;
-  if(currentRound === 10){
+  if(currentRound === 25){
     resultButton.hidden = false;
     productsImg.hidden = true;
     image.removeEventListener('click', handleTheEvent);
