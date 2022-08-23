@@ -155,7 +155,7 @@ function handleTheEvent(e){
   }
   currentRound++;
   // change back to 25 after fixing rendering
-  if(currentRound === 10){
+  if(currentRound === 25){
     resultButton.hidden = false;
     productsImg.hidden = true;
     image.removeEventListener('click', handleTheEvent);
@@ -182,12 +182,12 @@ resultButton.addEventListener('click', renderResults);
 
 function renderChart() {
   const ctx = document.getElementById('myChart').getContext('2d');
-  let productNames = [];
+  let products = [];
   let clicks = [];
   let views = [];
 
   for (let i = 0; i < allProducts.length; i++) {
-    productNames.push(allProducts[i].name);
+    products.push(allProducts[i].name);
     clicks.push(allProducts[i].clicked);
     views.push(allProducts[i].timesViewed);
   }
@@ -195,7 +195,7 @@ function renderChart() {
   let myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: productNames,
+      labels: products,
       datasets: [
         {
           label: '# of Votes',
