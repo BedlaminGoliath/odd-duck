@@ -175,9 +175,11 @@ function renderResults(){
     ul.appendChild(li);
   }
   renderChart();
+  saveSettings();
 
   return ul;
 }
+getItem();
 resultButton.addEventListener('click', renderResults);
 
 function renderChart() {
@@ -250,3 +252,16 @@ function renderChart() {
     },
   });
 }
+
+function saveSettings(){
+  let stringify = JSON.stringify(allProducts);
+  localStorage.setItem('allProducts', stringify);
+}
+function getItem(){
+  let getSettings = localStorage.getItem('allProducts');
+  if (getSettings){
+    let parsedItems = JSON.parse(getSettings);
+    allProducts = parsedItems;
+  }
+}
+
