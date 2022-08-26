@@ -20,14 +20,19 @@ h1{
 }
 h2{
     color: aliceblue;
-    /* border: solid; */
     margin-left: 12rem;
-    padding: 1rem;
+    margin-bottom: 2rem;
     font-size: xx-large;
+
 }
 li{
-    color: aliceblue;
-    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    color: rgb(0, 18, 33);
+    padding: 1em;
+    text-decoration: underline;
+
 }
 div{
     display: flex;
@@ -36,9 +41,9 @@ div{
 section{
     display: flex;
     justify-content: center;
-    margin-left: 10rem;
+    margin-left: 21rem;
     flex-direction: column;
-    color: aliceblue;
+    /* color: rgb(0, 6, 11); */
 }
 body{
     background: rgb(209, 209, 209);
@@ -57,10 +62,10 @@ body{
    justify-content: center;
 }
 ul{
-    margin-left: 35rem;
+    /* margin-left: 8rem; */
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
 }
 button{
