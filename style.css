@@ -1,16 +1,74 @@
 
 main{
-    background-color: black;
+    background-color: rgb(245, 245, 245, 0.848);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: aqua;
+    color: rgba(245, 245, 245, 0.848);
+    border: solid;
+    margin: auto;
 }
 nav{
     display: flex;
     justify-content: center;
 }
+h1{
+    font-size: 6rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: cursiv;
+    color: aliceblue;
+}
+h2{
+    color: aliceblue;
+    /* border: solid; */
+    margin-left: 12rem;
+    padding: 1rem;
+    font-size: xx-large;
+}
+li{
+    color: aliceblue;
+    padding: 3rem;
+}
 div{
     display: flex;
     justify-content: center;
+}
+section{
+    display: flex;
+    justify-content: center;
+    margin-left: 10rem;
+    flex-direction: column;
+    color: aliceblue;
+}
+body{
+    background: rgb(209, 209, 209);
+    border: solid;
+}
+#chart{
+    display: flex;
+    justify-content: center;
+    width: 50rem;
+    /* border-style: double; */
+    align-items: center;
+    margin-left: 25rem;
+}
+#productImg{
+   display: flex;
+   justify-content: center;
+}
+ul{
+    margin-left: 35rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+button{
+    margin-top: 2rem;
+    background-color: rgb(210, 196, 196);
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    width: 9rem;
+    height: 2rem;
 }
